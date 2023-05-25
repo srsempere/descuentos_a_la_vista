@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descuentos a la vista</title>
+</head>
+
+<body>
+    <h1>Productos de software</h1>
+    <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nombre Producto</th>
+            <th>Precio producto (€)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Camisa</td>
+            <td id="precio_1">10.00</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Pantalón</td>
+            <td id="precio_2">15.00</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Zapatos</td>
+            <td id="precio_3">20.00</td>
+          </tr>
+        </tbody>
+      </table>
+    <div>
+        <br>
+        <form action="main.php" method="get">
+            <label for="descuento">Introduzca su descuento (%):</label>
+            <input type="text" name="descuento">
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
