@@ -1,13 +1,11 @@
 <?php
 
-function convierte_a_entero($precios, $porcentaje) {
+function descuenta($precios, $porcentaje) {
     $precios_con_descuentos = array();
 
     foreach ($precios as $precio) {
         $precio = trim($precio);
-        // var_dump($precio);
         $precio_float = floatval($precio);
-        // var_dump($precio_float);
         var_dump($precio_float);
     }
 
@@ -35,7 +33,7 @@ $precios_ArrStr = $matches[1];
 
 // Llamar a la función para aplicar el descuento a cada cantidad.
 
-$array_precios_con_descuento = convierte_a_entero($precios_ArrStr, $descuento);
+$array_precios_con_descuento = descuenta($precios_ArrStr, $descuento);
 
 // var_dump($array_precios_con_descuento);
 
