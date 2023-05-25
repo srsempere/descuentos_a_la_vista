@@ -1,17 +1,16 @@
 <?php
 
-function descuenta($precios, $porcentaje) {
+function descuenta($precios, $porcentaje)
+{
     $precios_con_descuentos = array();
     // $precios_float = array();
 
     foreach ($precios as $precio) {
         $precio = trim($precio);
         $precio_float = floatval($precio);
-        $descuento = ($precio * $porcentaje)/100;
+        $descuento = ($precio * $porcentaje) / 100;
         $precios_con_descuentos[] = $precio_float - $descuento;
     }
-    var_dump($precios_con_descuentos);
-
     return $precios_con_descuentos;
 }
 
@@ -34,13 +33,32 @@ preg_match_all($pattern, $html, $matches);
 $precios_ArrStr = $matches[1];
 
 
+// Extraer los nombres de los artículos utilziando una expresión regular.
+$pattern = '/<td>([^<]+)<\/td>\s*<td id="precio_\d+">/';
+preg_match_all($pattern, $html, $matches);
+
+// Obtener los nombres encontrados
+$nombres = $matches[1];
+
+
 // Llamar a la función para aplicar el descuento a cada cantidad.
 
-$array_precios_con_descuento = descuenta($precios_ArrStr, $descuento);
-
-// var_dump($array_precios_con_descuento);
+$precios_con_descuentos = descuenta($precios_ArrStr, $descuento);
 
 ?>
 </br>
 </br>
+
+<table border="1">
+    <tr>
+        <th>Precio final <?= $nombres[0] ?></th>
+        <th>Precio final <?= $nombres[1] ?></th>
+        <th>Precio final <?= $nombres[2] ?></th>
+    </tr>
+    <tr>
+        <td><?= $precios_con_descuentos[0] ?> €</td>
+        <td><?= $precios_con_descuentos[1] ?> €</td>
+        <td><?= $precios_con_descuentos[2] ?> €</td>
+    </tr>
+</table>
 <a href="index.html">Volver a principal</a>
