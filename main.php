@@ -2,12 +2,15 @@
 
 function descuenta($precios, $porcentaje) {
     $precios_con_descuentos = array();
+    // $precios_float = array();
 
     foreach ($precios as $precio) {
         $precio = trim($precio);
         $precio_float = floatval($precio);
-        var_dump($precio_float);
+        $descuento = ($precio * $porcentaje)/100;
+        $precios_con_descuentos[] = $precio_float - $descuento;
     }
+    var_dump($precios_con_descuentos);
 
     return $precios_con_descuentos;
 }
